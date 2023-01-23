@@ -3,16 +3,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/profilisFragment">
+    app:startDestination="@id/wignebisFragment">
 
     <fragment
         android:id="@+id/profilisFragment"
         android:name="com.example.myapplication.ProfilisFragment"
         android:label="fragment_profilis"
-        tools:layout="@layout/fragment_profilis" />
+        tools:layout="@layout/fragment_profilis" >
+        <action
+            android:id="@+id/action_profilisFragment_to_wignebisFragment"
+            app:destination="@id/wignebisFragment" />
+    </fragment>
     <fragment
         android:id="@+id/wignebisFragment"
         android:name="com.example.myapplication.WignebisFragment"
         android:label="fragment_wignebis"
-        tools:layout="@layout/fragment_wignebis" />
+        tools:layout="@layout/fragment_wignebis" >
+        <action
+            android:id="@+id/action_wignebisFragment_to_profilisFragment"
+            app:destination="@id/profilisFragment" />
+        <action
+            android:id="@+id/action_wignebisFragment_to_profilisFragment2"
+            app:destination="@id/profilisFragment" />
+    </fragment>
 </navigation>
