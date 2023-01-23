@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/wignebisFragment"
+        android:icon="@drawable/ic_baseline_menu_book_24"
+        android:title="books" />
+    <item
+        android:id="@+id/profilisFragment"
+        android:icon="@drawable/ic_baseline_pregnant_woman_24"
+        android:title="profile" />
+</menu>

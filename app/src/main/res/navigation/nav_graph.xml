@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/profilisFragment">
+
+    <fragment
+        android:id="@+id/profilisFragment"
+        android:name="com.example.myapplication.ProfilisFragment"
+        android:label="fragment_profilis"
+        tools:layout="@layout/fragment_profilis" />
+    <fragment
+        android:id="@+id/wignebisFragment"
+        android:name="com.example.myapplication.WignebisFragment"
+        android:label="fragment_wignebis"
+        tools:layout="@layout/fragment_wignebis" />
+</navigation>
