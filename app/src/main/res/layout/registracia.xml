@@ -27,12 +27,14 @@
         android:id="@+id/Email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
         android:hint="Email"
         android:textColorHint="@color/black"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Nickname" />
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <EditText
         android:id="@+id/PASSWORD"
@@ -45,18 +47,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Email" />
 
-    <EditText
-        android:id="@+id/Nickname"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Nickname"
-        android:textColorHint="@color/black"
-        android:textStyle="bold"
-        android:layout_marginTop="120dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <TextView
         android:id="@+id/textView5"
