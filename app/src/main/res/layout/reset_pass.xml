@@ -2,100 +2,90 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/wignebispoto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
-
+    android:background="@drawable/locked">
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="134dp"
-        android:layout_height="69dp"
+        android:id="@+id/textView3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/circle_shape"
         android:gravity="center"
-        android:backgroundTint="#FFFFFF"
-        android:text="Log in"
-        android:textColor="@color/black"
-        android:textSize="32sp"
+        android:text="Reset Password"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/black"
+        android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.22" />
+        app:layout_constraintVertical_bias="0.432" />
 
     <EditText
-        android:id="@+id/Email"
-        android:layout_width="match_parent"
+        android:id="@+id/paroli"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="92dp"
+        android:layout_marginTop="52dp"
         android:background="@drawable/circle_shape"
-        android:backgroundTint="@color/white"
-        android:hint="Email"
-        android:textSize="24sp"
+        android:backgroundTint="@color/black"
+        android:hint="Current Password "
+        android:textColorHint="@color/white"
+        android:textSize="20sp"
         android:textStyle="bold"
-        android:textColorHint="@color/black"
-        android:layout_marginEnd="10dp"
-        android:layout_marginStart="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <EditText
-        android:id="@+id/pass"
-        android:layout_width="match_parent"
+        android:id="@+id/gaimeore_paroli"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/circle_shape"
-        android:textColorHint="@color/black"
-        android:layout_marginEnd="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:backgroundTint="@color/white"
-        android:textStyle="bold"
-        android:textSize="24sp"
-        android:hint="Password"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Email" />
-
-    <TextView
-        android:id="@+id/noacc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="don't have an account?"
-        android:textColor="@color/black"
+        android:backgroundTint="@color/black"
+        android:hint="Repeat Password"
+        android:textColorHint="@color/white"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pass" />
+        app:layout_constraintTop_toBottomOf="@+id/paroli" />
 
     <TextView
-        android:id="@+id/register"
+        android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:text="register now!"
-        android:textColor="@color/black"
+        android:text="Forget password ?"
+        android:textColor="#00FF0A"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/noacc"
-        app:layout_constraintTop_toBottomOf="@+id/pass" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gaimeore_paroli" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:text="recover now !"
+        android:textColor="#00FF0A"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/gaimeore_paroli" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="sign in"
+        android:text="Reset"
         android:background="@drawable/circle_shape"
+        android:textColor="@color/white"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/noacc" />
-
-
-
-
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
