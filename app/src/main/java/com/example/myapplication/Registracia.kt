@@ -11,6 +11,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
+import kotlin.concurrent.fixedRateTimer
 
 class Registracia:Fragment(R.layout.registracia) {
     private lateinit var Email:EditText
@@ -43,7 +44,11 @@ class Registracia:Fragment(R.layout.registracia) {
             if (password.isNotEmpty()&&email.isNotEmpty()){
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(email,password)
                     .addOnSuccessListener {
+                        FirebaseAuth.getInstance().signOut()
+                        fragmentManager?.beginTransaction()?.replace(R.id.mainContainer,LoginFragment())?.commit()
                         Toast.makeText(this.requireContext(), "წარმსტებით დარეგისტრილდით", Toast.LENGTH_SHORT).show()
+                    }.addOnFailureListener{
+                        Toast.makeText(this.requireContext(), "opaa", Toast.LENGTH_SHORT).show()
                     }
 
                 

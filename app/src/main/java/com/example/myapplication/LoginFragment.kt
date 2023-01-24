@@ -1,6 +1,7 @@
 package com.example.myapplication
 
 import android.app.AlertDialog
+import android.content.Context
 import android.os.Bundle
 import android.provider.ContactsContract.CommonDataKinds.Email
 import android.view.LayoutInflater
@@ -28,66 +29,89 @@ class LoginFragment: Fragment(R.layout.login_fragment) {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        var view = inflater.inflate(R.layout.login_fragment,container,false)
-        pass=view.findViewById(R.id.pass)
-        Email=view.findViewById(R.id.Email)
-        button=view.findViewById(R.id.button)
-        button5=view.findViewById(R.id.button5)
-        register=view.findViewById(R.id.register)
-        RESET=view.findViewById(R.id.RESET)
-        builder=AlertDialog.Builder(requireContext())
+        var view = inflater.inflate(R.layout.login_fragment, container, false)
+        pass = view.findViewById(R.id.pass)
+        Email = view.findViewById(R.id.Email)
+        button = view.findViewById(R.id.button)
+        button5 = view.findViewById(R.id.button5)
+        register = view.findViewById(R.id.register)
+        RESET = view.findViewById(R.id.RESET)
+        val preferences = activity?.getSharedPreferences("informacia", Context.MODE_PRIVATE)
+        val editor = preferences?.edit()
+        builder = AlertDialog.Builder(requireContext())
 
 
         builder.setTitle("UPSIDUPSI")
             .setMessage("გსურთ გათიშოთ აპლიკაცია?")
             .setCancelable(true)
-            .setPositiveButton("yes"){dialogInterface,it->
+            .setPositiveButton("yes") { dialogInterface, it ->
                 dialogInterface.cancel()
             }
-            .setNegativeButton("no"){dialogInterface,it->
+            .setNegativeButton("no") { dialogInterface, it ->
                 dialogInterface.cancel()
             }
-            .setNeutralButton("help"){dialogInterface,it->
+            .setNeutralButton("help") { dialogInterface, it ->
                 Toast.makeText(this.requireContext(), "ver gishveli", Toast.LENGTH_SHORT).show()
             }
-            val dialog=builder.create()
+        val dialog = builder.create()
         button5.setOnClickListener {
             dialog.show()
         }
         RESET.setOnClickListener {
-            val fragment1 =ResetPassword()
+            val fragment1 = ResetPassword()
             val transaction = fragmentManager?.beginTransaction()
             transaction?.replace(R.id.mainContainer, fragment1)
             transaction?.commit()
 
         }
+
         register.setOnClickListener {
-            val fragment1 =Registracia()
+            val fragment1 = Registracia()
             val transaction = fragmentManager?.beginTransaction()
             transaction?.replace(R.id.mainContainer, fragment1)
             transaction?.commit()
 
         }
 
-
-        button.setOnClickListener {
-
-            var password =pass.text.toString()
-            var email= Email.text.toString()
-            if (password.isNotEmpty()&&email.isNotEmpty()){
-
-
-
-                FirebaseAuth.getInstance().signInWithEmailAndPassword(email,password)
+        if (FirebaseAuth.getInstance().currentUser != null) {
+            val mail = preferences?.getString("email", "")
+            val pass1 = preferences?.getString("password", "")
+            println("saaaaaaaaaaaaaaa$mail$pass1")
+            if (mail != "" && pass1 != "") {
+                FirebaseAuth.getInstance().signInWithEmailAndPassword(mail!!, pass1!!)
                     .addOnSuccessListener {
-                        Toast.makeText(this.requireContext(), "ყოჩაღ", Toast.LENGTH_SHORT).show()
+                        val fragment1 = xd()
+                        val transaction = fragmentManager?.beginTransaction()
+                        transaction?.replace(R.id.mainContainer, fragment1)
+                        transaction?.commit()
                     }
+            }
+        }else {
+            button.setOnClickListener {
 
+
+                var password = pass.text.toString()
+                var email = Email.text.toString()
+                if (password.isNotEmpty() && email.isNotEmpty()) {
+
+
+                    FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
+                        .addOnSuccessListener {
+                            val fragment1 = xd()
+                            val transaction = fragmentManager?.beginTransaction()
+                            transaction?.replace(R.id.mainContainer, fragment1)
+                            transaction?.commit()
+                            editor?.putString("email", email)
+                            editor?.putString("password", password)
+                            editor?.apply()
+                        }.addOnFailureListener{
+                            Toast.makeText(this.requireContext(), "uuu", Toast.LENGTH_SHORT).show()
+                        }
 
 
                 }
+            }
         }
-
-        return view
+            return view
+        }
     }
-}
